@@ -1,10 +1,11 @@
 package be.technifutur.decouverte.collection;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Objects;
 
-public class Personne implements Comparable<Personne> {
+public class Personne implements Serializable /*implements Comparable<Personne>*/ {
     private String nom;
     private String prenom;
     private LocalDate naissance;
@@ -75,7 +76,7 @@ public class Personne implements Comparable<Personne> {
         };
     }
 
-    @Override
+    /* @Override
     public int compareTo(Personne o) {
         int result;
         result = this.nom.compareTo(o.nom);
@@ -85,7 +86,7 @@ public class Personne implements Comparable<Personne> {
             result = this.naissance.compareTo(o.naissance);
         }
         return result;
-    }
+    } */
     public int getAge(){
         return Period.between(this.naissance, LocalDate.now()).getYears();
     }
